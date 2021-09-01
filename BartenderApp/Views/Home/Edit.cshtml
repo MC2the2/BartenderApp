@@ -1,0 +1,33 @@
+﻿@model Cocktail
+@{
+    ViewBag.Title = "Edit Cocktail";
+    Layout = "_ALayout";
+}
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="CocktailID" />
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <div><span asp-validation-for="Name" class="text-danger"></span></div>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="CustomerName"></label>
+        <div><span asp-validation-for="CustomerName" class="text-danger"></span></div>
+        <textarea asp-for="CustomerName" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label asp-for="Price">Select a Size:</label>
+        <div><span asp-validation-for="Price" class="text-danger"></span></div>
+        <select asp-for="Price">
+            <option value="">Choose an option</option>
+            <option value="1.99">8 oz</option>
+            <option value="3.99">16 oz</option>
+            <option value="5.99">24 oz</option>
+        </select>
+    </div>
+    <div class="text-center">
+        <button class="btn btn-primary" type="submit">Save</button>
+        <a asp-action="Index" class="btn btn-default">Home</a>
+    </div>
+</form>
+
